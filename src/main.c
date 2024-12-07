@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include "../include/boolean_knapsack.h"
+
 int main() {
     int option = -1;
 
@@ -32,7 +34,7 @@ int main() {
             break;
         
         case 4:
-            /* code */
+            booleanKnapsack();
             break;
         
         case 5:
