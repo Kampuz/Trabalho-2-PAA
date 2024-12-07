@@ -1,3 +1,6 @@
+# Trabalho de PAA
+
+```txt
 projeto/
 ├── src/                  # Código-fonte principal
 │   ├── assignment.c      # Implementação do problema de Associação de Tarefas
@@ -14,3 +17,4 @@ projeto/
 ├── build/                # Diretório para arquivos compilados
 ├── Makefile              # Script para automação da compilação
 └── README.md             # Documentação do projeto
+```
