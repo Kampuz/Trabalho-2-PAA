@@ -17,6 +17,36 @@ int main() {
             scanf("%d", option);
         } while ((option > 5) || (option < 0));
 
+        switch (option)
+        {
+        case 1:
+            /* code */
+            break;
+        
+        case 2:
+            /* code */
+            break;
+        
+        case 3:
+            /* code */
+            break;
+        
+        case 4:
+            /* code */
+            break;
+        
+        case 5:
+            /* code */
+            break;
+        
+        case 0:
+            printf("Saindo...\n");
+            break;
+        
+        default:
+            printf("Opção Inválida!\n");
+            break;
+        }
         
     } while (option != 0);
     
