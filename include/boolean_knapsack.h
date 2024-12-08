@@ -64,9 +64,9 @@ int max(int a, int b);
  *  @param BACKPACK* pointer to the backpack
  *  @param ITEM* list of items
  *  @param int number of items
- *  @return Void
+ *  @return int
  */
-void backpackDP(BACKPACK *backpack, ITEM *items, int numItens);
+int backpackDP(BACKPACK *backpack, ITEM *items, int numItens);
 
 /**
  *  @brief prints the result to the problem

@@ -41,7 +41,7 @@ int max(int a, int b) {
     
 }
 
-void backpackDP(BACKPACK *backpack, ITEM *items, int numItens) {
+int backpackDP(BACKPACK *backpack, ITEM *items, int numItens) {
     int capacity = backpack->capacity;
 
     int dp[numItens + 1][capacity + 1];
@@ -79,6 +79,8 @@ void backpackDP(BACKPACK *backpack, ITEM *items, int numItens) {
         }
         
     }
+
+    return backpack->value;
 }
 
 void printResult(BACKPACK *backpack) {
@@ -114,6 +116,7 @@ void booleanKnapsack() {
 
     free(itens);
     free(backpack->items);
+
 }
 
 
