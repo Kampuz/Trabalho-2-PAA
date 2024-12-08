@@ -7,7 +7,9 @@ void proceed() {
     return;
 }
 
-void menu(int *option) {
+int menu() {
+    int option = -1;
+
         printf("Escolha uma opção:\n");
         printf("1. Problema de Associação de Tarefas\n");
         printf("2. Codificação de Huffman\n");
@@ -18,4 +20,5 @@ void menu(int *option) {
         printf ("= ");
         scanf("%d", &option);
         getchar();
+    return option;
 }

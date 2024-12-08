@@ -3,6 +3,6 @@
 
 void proceed();
 
-void menu(int *option);
+int menu();
 
 #endif
