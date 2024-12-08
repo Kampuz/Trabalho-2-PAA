@@ -1,44 +1,14 @@
 /**
  * @file assignment.c
  * @brief Branch & Bound - Força Bruta: Problema de Associação de Tarefas
- * @version 0.1
+ * @version 0.4
  * 
  * @author sayu
  * @date 2024-12-07
  * 
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-/* Useless
-typedef struct {
-    char* taskName;
-    int index;
-} task; //kinda miscellaneous
-*/
-
-/**
- * @brief Person struct:
- * Each person has an array for the task associated
- * with each index, each index has a cost attributed.
- */
-typedef struct {
-    int* cost;
-} person;
-
-/**
- * @brief Table struct:
- * An array of people, as to consider the main problem
- * that is assigning people to do the tasks with the
- * least cost possible.
- */
-typedef struct {
-    person* people;
-    int numberPeople;
-    int numberTasks;
-} table;
+#include "../include/assignment.h"
 
 // TABLE
 
@@ -58,26 +28,6 @@ person createPerson(table* table) {
         newPerson.cost[i] = -1;
     return newPerson;
 }
-
-/* Useless
-void addPerson(table* table, person person) {
-    int i;
-    for (i = 0; i < table->numberPeople; i++)
-        if (table->people == NULL) break;
-    table->people[i] = person;
-}
-
-task* createTask(table* table, char* taskName) {
-    int i;
-    task* newTask = (task*)malloc(sizeof(task));
-    newTask->taskName = taskName;
-    for (i = 0; i < table->numberTasks; i++)
-        if (table->people[0].cost[i] == -1) break;
-    newTask->index = i;
-
-    return newTask;
-}
-*/
 
 void addCost(table* table, int p, int t, int cost) {
     table->people[p].cost[t] = cost;
@@ -218,7 +168,7 @@ void assignRecursive(table* table, int* assigned, int currentTask, int* bestCost
     }
 }
 
-void printBestAssignment(int* assignment, table* table) {
+void printAssignment(int* assignment, table* table) {
     printf ("\nBest Assigment:\n");
     int totalCost = 0;
     for (int i = 0; i < table->numberPeople; i++) {
@@ -228,33 +178,23 @@ void printBestAssignment(int* assignment, table* table) {
     printf("Total Cost: %d\n", totalCost);
 }
 
-int main () {
+void executeAssignment() {
     table* newTable = readTable();
-    printf ("Table Read!");
-
+    printf ("Table Read!\n");
     int* assignment = assignTask(newTable);
-    printBestAssignment(assignment, newTable);
-    
-    return 0;
+    printAssignment(assignment, newTable);
+    free(assignment);
+    freeTable(newTable);
 }
 
-    /*
-    * :: TABLE MANIPULATION ::
-    * create table();
-    * create person();
-    * add task costs();
-    * read table();
-    */
+void freeTable(table* table) {
+    if (table == NULL) return;
 
-    /* :: BRANCH AND BOUND ::
-    * find best task arrangement();
-    */
+    for (int i = 0; i , table->numberPeople; i++) {
+        free(table->people[i].cost);
+    }
 
-    /*
-    * :: DEBUG ::
-    * show table();
-    * create table();
-    * create person();
-    * add task costs();
-    * read table();
-    */
+    free(table->people);
+
+    free(table);
+}
