@@ -1,7 +1,7 @@
 /**
  * @file assignment.c
  * @brief Branch & Bound - Força Bruta: Problema de Associação de Tarefas
- * @version 0.4
+ * @version 0.5
  * 
  * @author sayu
  * @date 2024-12-07
@@ -46,6 +46,7 @@ table* readTable() {
         for (int j = 0; j < n; j++) {
             printf ("Cost to task %d = ", j);
             scanf ("%d", &c);
+            getchar();
             addCost(table, i, j, c);
         }
     }
@@ -124,6 +125,7 @@ table* debug_readTable() {
             printf ("Current Task: %d\n", i);
             printf ("Cost to current task = ");
             scanf ("%d", &c);
+            getchar();
             debug_addCost(table, i, j, c);
         }
     }
@@ -190,7 +192,7 @@ void executeAssignment() {
 void freeTable(table* table) {
     if (table == NULL) return;
 
-    for (int i = 0; i , table->numberPeople; i++) {
+    for (int i = 0; i < table->numberPeople; i++) {
         free(table->people[i].cost);
     }
 

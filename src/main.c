@@ -12,7 +12,9 @@ int main() {
         printf("4. Mochila Booleana\n");
         printf("5. Subsequência Comum Máxima\n");
         printf("0. Sair\n");
+        printf ("= ");
         scanf("%d", &option);
+        getchar();
         
         switch(option) {
             case 0: break;
@@ -25,6 +27,7 @@ int main() {
             case 5: break;
             default: break;
         }
+        getchar();
     } while (option != 0);
     
 }
