@@ -21,6 +21,7 @@ int main() {
             printf("0. Sair\n");
 
             scanf("%d", &option);
+            getchar();
 
         } while ((option > 5) || (option < 0));
 
@@ -32,7 +33,7 @@ int main() {
             break;
         
         case 2:
-            /* code */
+            huffman();
             break;
         
         case 3:

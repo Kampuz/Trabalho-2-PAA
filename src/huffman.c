@@ -4,6 +4,10 @@
 
 #include "../include/huffman.h"
 
+/*
+gcc src/huffman.c -o main
+*/
+
 
 NODE *createNode(char data, unsigned freq) {
     NODE *newNode = (NODE*)malloc(sizeof(NODE));
@@ -135,22 +139,18 @@ void huffmanCoding(char text[]) {
 }
 
 void huffman() {
-    char *text = (char*)malloc(MAX_CHAR * sizeof(char));
+    char text[MAX_CHAR];
 
-    printf("essa linha aparece\n");
+    printf("Digite o texto a ser criptografado\n");
 
-    printf("Digite um texto: ");
-    if (fgets(text, sizeof(text), stdin))
-    {
-        text[strcspn(text, "\n")] = '\0';
-    }
-    
-    printf("help?");
+    fgets(text, sizeof(text), stdin);
 
     huffmanCoding(text);
 }
 
+/*
 int main() {
     huffman();
     return 0;
 }
+*/
