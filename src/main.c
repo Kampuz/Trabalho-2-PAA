@@ -3,6 +3,7 @@
 
 #include "../include/boolean_knapsack.h"
 #include "../include/assignment.h"
+#include "../include/huffman.h"
 
 int main() {
     int option = -1;
@@ -26,7 +27,9 @@ int main() {
             case 1:
                 executeAssignment();
                 break;
-            case 2: break;
+            case 2: 
+                huffman();
+                break;
             case 3: break;
             case 4:
                 booleanKnapsack();
