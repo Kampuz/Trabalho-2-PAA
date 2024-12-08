@@ -133,7 +133,7 @@ void huffmanCoding(char text[]) {
     freeTree(root);
 }
 
-void huffman() {
+void executeHuffman() {
     char text[MAX_CHAR];
 
     printf("Digite o texto a ser criptografado\n");

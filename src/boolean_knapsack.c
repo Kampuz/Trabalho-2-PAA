@@ -94,7 +94,7 @@ void printResult(BACKPACK *backpack) {
 }
 
 
-void booleanKnapsack() {
+void executeBooleanKnapsack() {
 
     int capacity = 0, numItems = 0;
 

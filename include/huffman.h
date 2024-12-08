@@ -21,6 +21,6 @@ void generateCodes(NODE *root, char code[], int top, char codes[MAX_CHAR][MAX_CH
 
 void huffmanCoding(char text[]);
 
-void huffman();
+void executeHuffman();
 
 #endif

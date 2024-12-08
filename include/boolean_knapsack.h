@@ -21,13 +21,6 @@ typedef struct {
     ITEM *items;
 } BACKPACK;
 
-
-/**
- * @brief the main code of the boolean knapsack problem;
- * @return Void
- */
-void booleanKnapsack();
-
 /**
  *  @brief creates a backpack
  * 
@@ -75,5 +68,11 @@ int backpackDP(BACKPACK *backpack, ITEM *items, int numItens);
  *  @return Void
  */
 void printResult(BACKPACK *backpack);
+
+/**
+ * @brief the main code of the boolean knapsack problem;
+ * @return Void
+ */
+void executeBooleanKnapsack();
 
 #endif

@@ -20,18 +20,18 @@ int main() {
                 executeAssignment();
                 break;
             case 2: 
-                huffman();
+                executeHuffman();
                 break;
             case 3: break;
             case 4:
-                booleanKnapsack();
+                executeBooleanKnapsack();
                 break;
             case 5: break;
             default:
                 printf ("Opcao Inválida\n");
                 break;
         }
-        
+
         proceed();
     } while (option != 0);
     
