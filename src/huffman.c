@@ -149,3 +149,8 @@ void huffman() {
 
     huffmanCoding(text);
 }
+
+int main() {
+    huffman();
+    return 0;
+}
