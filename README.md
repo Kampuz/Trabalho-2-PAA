@@ -18,3 +18,11 @@ projeto/
 ├── Makefile              # Script para automação da compilação
 └── README.md             # Documentação do projeto
 ```
+
+## Divisão de Trabalhos
+
+1. Associação de Tarefas @a-sayu
+2. Codificação de Huffman @Kampuz
+3. Mochila Fracionária @a-sayu
+4. Mochila Booleana @Kampuz
+5. Sequencia Comum Máxima @a-sayu
