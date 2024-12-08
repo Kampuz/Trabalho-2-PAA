@@ -4,7 +4,7 @@
 #include "../include/boolean_knapsack.h"
 #include "../include/assignment.h"
 #include "../include/huffman.h"
-#include "utils.h"
+#include "../include/utils.h"
 
 int main() {
     int option = -1;

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../include/utils.h"
+
 void proceed() {
     printf("Digite [ENTER] para continuar");
     getchar();
