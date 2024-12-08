@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#include "../include/boolean_knapsack.h"
 #include "../include/assignment.h"
 
 int main() {
@@ -33,6 +36,7 @@ int main() {
                 printf ("Opcao Inválida\n");
                 break;
         }
+        printf("Digite [ENTER] para continuar");
         getchar();
     } while (option != 0);
     
