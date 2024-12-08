@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /* Useless
 typedef struct {
@@ -17,8 +18,6 @@ typedef struct {
     int index;
 } task; //kinda miscellaneous
 */
-
-// TABLE
 
 /**
  * @brief Person struct:
@@ -40,6 +39,8 @@ typedef struct {
     int numberPeople;
     int numberTasks;
 } table;
+
+// TABLE
 
 table* createTable(int numberPeople, int numberTasks) {
     table* newTable = (table*)malloc(sizeof(table));
@@ -179,33 +180,81 @@ table* debug_readTable() {
     return table;
 }
 
-int main () {
-    table* newTable;
-    /* RAW TEST
-    newTable = debug_createTable(2, 2);
-    newTable->people[0] = debug_createPerson(newTable);
-    newTable->people[1] = debug_createPerson(newTable);
-    debug_addCost(newTable, 0, 0, 2);
-    debug_table(newTable);
-    */
+// ASSIGNMENT PROBLEM
 
-   newTable = debug_readTable();
-   debug_table(newTable);
+void assignRecursive(table* table, int* assigned, int currentTask, int* bestCost, int currentCost, int* bestAssignment);
+
+int* assignTask(table* table) {
+    int n = table->numberTasks, totalCost = 0;
+    int* assigned = malloc(n * sizeof(int));
+    int* bestAssignment = malloc(n*sizeof(int));
+    int bestCost = INT_MAX;
+    for (int i = 0; i < n; i++) assigned[i] = -1;
+    for (int i = 0; i < n; i++) bestAssignment[i] = -1;
+    assignRecursive(table, assigned, 0, &bestCost, 0, bestAssignment);
+
+    return bestAssignment;
+}
+
+void assignRecursive(table* table, int* assigned, int currentTask, int* bestCost, int currentCost, int* bestAssignment) {
+    if (currentTask == table->numberTasks) {
+        if (currentCost < *bestCost) {
+            *bestCost = currentCost;
+            for(int i = 0; i < table->numberTasks; i++) bestAssignment[i] = assigned[i];
+        }
+        return;
+    }
+
+    for (int i = 0; i < table->numberPeople; i++) {
+        if (assigned[i] == -1) {
+            assigned[i] = currentTask;
+            currentCost = currentCost + table->people[i].cost[currentTask];
+            if (currentCost < *bestCost) {
+                assignRecursive(table, assigned, currentTask+1, bestCost, currentCost, bestAssignment);
+            }
+            assigned[i] = -1;
+            currentCost = currentCost - table->people[i].cost[currentTask];
+        }
+    }
+}
+
+void printBestAssignment(int* assignment, table* table) {
+    printf ("\nBest Assigment:\n");
+    int totalCost = 0;
+    for (int i = 0; i < table->numberPeople; i++) {
+        printf ("Person %d -> Task %d (Cost: %d)\n", i, assignment[i], table->people[i].cost[assignment[i]]);
+        totalCost += table->people[i].cost[assignment[i]];
+    }
+    printf("Total Cost: %d\n", totalCost);
+}
+
+int main () {
+    table* newTable = readTable();
+    printf ("Table Read!");
+
+    int* assignment = assignTask(newTable);
+    printBestAssignment(assignment, newTable);
     
     return 0;
 }
 
-    // PLAN:
-    // :: TABLE MANIPULATION ::
-    // create table();
-    // create person();
-    // add person to table();
-    // create task();
-    // assign task() = add task costs();
-    // read table();
+    /*
+    * :: TABLE MANIPULATION ::
+    * create table();
+    * create person();
+    * add task costs();
+    * read table();
+    */
 
-    // :: BRANCH AND BOUND ::
-    // find best task arrangement();
+    /* :: BRANCH AND BOUND ::
+    * find best task arrangement();
+    */
 
-    // :: DEBUG ::
-    // show table();
+    /*
+    * :: DEBUG ::
+    * show table();
+    * create table();
+    * create person();
+    * add task costs();
+    * read table();
+    */
