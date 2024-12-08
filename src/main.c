@@ -17,15 +17,21 @@ int main() {
         getchar();
         
         switch(option) {
-            case 0: break;
+            case 0:
+                printf ("Saindo...\n");
+                break;
             case 1:
-            executeAssignment();
-            break;
+                executeAssignment();
+                break;
             case 2: break;
             case 3: break;
-            case 4: break;
+            case 4:
+                booleanKnapsack();
+                break;
             case 5: break;
-            default: break;
+            default:
+                printf ("Opcao Inválida\n");
+                break;
         }
         getchar();
     } while (option != 0);
