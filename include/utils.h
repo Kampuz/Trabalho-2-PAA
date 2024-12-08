@@ -10,8 +10,8 @@ void proceed();
 /**
  *  @brief Displays a menu for problem selection and captures the user's choice.
  * 
- *  @param option Pointer to an integer where the selected menu option will be stored.
+ *  @return returns the option selected.
  */
-void menu(int *option);
+int menu();
 
 #endif

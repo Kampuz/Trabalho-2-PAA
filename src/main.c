@@ -10,7 +10,7 @@ int main() {
     int option = -1;
 
     do {
-        menu(&option);
+        option = menu();
 
         switch(option) {
             case 0:
