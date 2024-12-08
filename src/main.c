@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "../include/boolean_knapsack.h"
+#include "../include/huffman.h"
 
 int main() {
     int option = -1;
@@ -17,8 +19,11 @@ int main() {
             printf("4. Mochila Booleana\n");
             printf("5. Subsequência Comum Máxima\n");
             printf("0. Sair\n");
+
             scanf("%d", &option);
+
         } while ((option > 5) || (option < 0));
+
 
         switch (option)
         {
@@ -50,9 +55,8 @@ int main() {
             printf("Opção Inválida!\n");
             break;
         }
-        
-        printf("Digite [ENTER] para continuar");
-        while (getchar() != '\n');
+
     } while (option != 0);
     
+    return 0;
 }
