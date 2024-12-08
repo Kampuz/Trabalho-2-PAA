@@ -47,11 +47,13 @@ knapsack createKnapsack(int maxWeight, int n) {
     knapsack newKnapsack;
     newKnapsack.maxWeight = maxWeight;
     newKnapsack.fractionStored = (float*)malloc(n*sizeof(float));
+    newKnapsack.ids = (int*)malloc(n*sizeof(int));
     return newKnapsack;
 }
 
-object createObject(int w, int v) {
+object createObject(int id, int w, int v) {
     object newObject;
+    newObject.id = id;
     newObject.weight = w;
     newObject.value = v;
     newObject.ratio = (float)v/w;
@@ -70,7 +72,7 @@ object* addObjects(int n) {
         scanf("%d", &v);
         getchar();
         if (w <= 0 || v < 0) break;
-        arrayObjects[i] = createObject(w, v);
+        arrayObjects[i] = createObject(i, w, v);
         i++;
     } while (i != n);
     quickSort(arrayObjects, 0, n-1);
@@ -85,10 +87,12 @@ int fillKnapsack(knapsack* knapsack, object* objects, int n) {
     for (int i = 0; i < n; i++) {
         if(objects[i].weight <= currentWeight) {
             knapsack->fractionStored[i] = 1.0;
+            knapsack->ids[i] = objects[i].id;
             currentWeight -= objects[i].weight;
             totalValue += objects[i].value;
         } else if (currentWeight > 0) {
             knapsack->fractionStored[i] = (float)currentWeight / objects[i].weight;
+            knapsack->ids[i] = objects[i].id;
             totalValue += objects[i].value * knapsack->fractionStored[i];
             break;
         }
@@ -103,7 +107,7 @@ void printResults(knapsack* knapsack, object* object, int n, int totalValue) {
     printf("Fracoes dos objetos na mochila:\n");
     for (int i = 0; i < n; i++) {
         if (knapsack->fractionStored[i] > 0)
-            printf("Object %d: %f\n", i, knapsack->fractionStored[i]);
+            printf("Object %d: %f\n", knapsack->ids[i], knapsack->fractionStored[i]);
     }
 }
 

@@ -2,6 +2,7 @@
 #define FRACTIONAL_KNAPSACK_H
 
 typedef struct {
+    int id;
     int weight;
     int value;
     float ratio;
@@ -10,9 +11,10 @@ typedef struct {
 typedef struct {
     int maxWeight;
     float* fractionStored;
+    int* ids;
 } knapsack;
 
-object createObject(int weight, int value);
+object createObject(int id, int weight, int value);
 object* addObjects(int n);
 knapsack createKnapsack(int maxWeight, int n);
 void quickSort(object* array, int low, int high);
