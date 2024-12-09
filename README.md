@@ -25,4 +25,7 @@ projeto/
 2. Codificação de Huffman @Kampuz
 3. Mochila Fracionária @a-sayu
 4. Mochila Booleana @Kampuz
-5. Sequencia Comum Máxima @a-sayu
+5. Sequencia Comum Máxima @a-sayu & @Kampuz
+
+gcc src/assignment.c src/boolean_knapsack.c src/fractional_knapsack.c src/huffman.c src/lcs.c src/utils.c src/main.c -o main
+./main
