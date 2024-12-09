@@ -1,3 +1,16 @@
+/**
+ * @file lcs.c
+ * @brief  Implementar o algoritmo para encontrar a
+ * Longest Common Subsequence (LCS), ou maior
+ * subsequência comum, entre duas strings fornecidas
+ * pelo usuário.
+ * @version 1.0
+ * 
+ * @author Kampuz & sayu
+ * @date 2024-12-08
+ * 
+ */
+
 #include "../include/lcs.h"
 
 void findLCS(char * str1, char *str2) {
