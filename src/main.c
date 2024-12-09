@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../include/fractional_knapsack.h"
 #include "../include/boolean_knapsack.h"
 #include "../include/assignment.h"
 #include "../include/huffman.h"
 #include "../include/lcs.h"
-#include "../include/utils.h"
+#include "../include/../include/utils.h"
 
 int main() {
     int option = -1;
@@ -23,7 +24,9 @@ int main() {
             case 2: 
                 executeHuffman();
                 break;
-            case 3: break;
+            case 3: 
+                executeKnapsack();
+                break;
             case 4:
                 executeBooleanKnapsack();
                 break;
