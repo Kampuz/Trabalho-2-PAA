@@ -6,7 +6,7 @@
 #include "../include/assignment.h"
 #include "../include/huffman.h"
 #include "../include/lcs.h"
-#include "../include/../include/utils.h"
+#include "../include/utils.h"
 
 int main() {
     int option = -1;
