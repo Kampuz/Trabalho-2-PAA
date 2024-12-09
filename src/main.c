@@ -5,7 +5,8 @@
 #include "../include/boolean_knapsack.h"
 #include "../include/assignment.h"
 #include "../include/huffman.h"
-#include "../include/utils.h"
+#include "../include/lcs.h"
+#include "../include/../include/utils.h"
 
 int main() {
     int option = -1;
@@ -29,7 +30,9 @@ int main() {
             case 4:
                 executeBooleanKnapsack();
                 break;
-            case 5: break;
+            case 5: 
+                executeLCS();
+                break;
             default:
                 printf ("Opcao Inválida\n");
                 break;

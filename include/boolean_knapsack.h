@@ -2,19 +2,22 @@
 #define BOOLEAN_KNAPSACK_
 
 /**
- * @brief an item that will be put inside the backpack;
- * @param weight how much the item weights;
- * @param value how much the item is worth;
+ * @brief Represents an item that can be placed in the backpack.
+ * 
+ * @param weight Weight of the item.
+ * @param value Value of the item.
  */
 typedef struct {
     int value, weight;
 } ITEM;
 
 /**
- * @brief an backpack that will carry the items;
- * @param int Capacity = how much weight the backpack can handle;
- * @param int Value = how much the items inside the backpack are worth;
- * @param ITEM* Items =  the items inside the backpack;
+ * @brief Represents a backpack used in the knapsack problem.
+ * 
+ * @param value Total value of the items in the backpack.
+ * @param capacity Maximum weight the backpack can hold.
+ * @param itemCount Number of the items in the backpack.
+ * @param items Pointer to the list of items in the backpack.
  */
 typedef struct {
     int value, capacity, itemCount;
@@ -22,56 +25,50 @@ typedef struct {
 } BACKPACK;
 
 /**
- *  @brief creates a backpack
+ *  @brief Creates a backpack with specified capacity and item count.
  * 
- *  Assigns memory and default values to it
- * 
- *  @param int Capacity - how much weight the backpack can handle;
- *  @param int NumItems - the number of items that will be put inside the backpack;
- *  @return BACKPACK* (The backpack created)
+ *  @param capacity Maximum weight the backpack can hold.
+ *  @param numItems Number of items that will be considered for the backpack.
+ *  @return BACKPACK* Pointer to the newly created backpack.
  */
 BACKPACK *createBackpack(int capacity, int numItems);
 
 /**
- *  @brief reads and creates the item list
+ *  @brief Reads item data and creates a list of items.
  * 
- *  Recieve the input, creates the item and put it in a list
- * 
- *  @param int NumItems - the number of items that will be put inside the backpack;
- *  @return ITEM* (The list of items created)
+ *  @param numItems Number of items to be created.
+ *  @return ITEM* Pointer to the list of created items.
  */
 ITEM *readItems(int numItems);
 
 /**
- *  @brief calculates the bigger of two values
+ *  @brief Finds the maximum of two integers.abort
  * 
- *  @param int a number
- *  @param int a number
- *  @return int - the bigger number
+ *  @param a First integer value.
+ *  @param b Second integer value.
+ *  @return int The larger of the two values.
  */
 int max(int a, int b);
 
 /**
- *  @brief does the optimization of the backpack (value to weight)
+ *  @brief Optimizes the backpack value using dynamic programming.
  * 
- *  @param BACKPACK* pointer to the backpack
- *  @param ITEM* list of items
- *  @param int number of items
- *  @return int
+ *  @param backpack Pointer to the backpack structure.
+ *  @param items Pointer to the list of items
+ *  @param numItems Number of items in the list.
+ *  @return int Maximum value that can be achieved.
  */
 int backpackDP(BACKPACK *backpack, ITEM *items, int numItens);
 
 /**
- *  @brief prints the result to the problem
+ *  @brief Prints the result to the knapsack problem
  * 
- *  @param BACKPACK* the address to the optimized backpack;
- *  @return Void
+ *  @param backpack Pointer to the optimized backpack.
  */
 void printResult(BACKPACK *backpack);
 
 /**
- * @brief the main code of the boolean knapsack problem;
- * @return Void
+ * @brief Executes the main workflow for solving the problem.
  */
 void executeBooleanKnapsack();
 
