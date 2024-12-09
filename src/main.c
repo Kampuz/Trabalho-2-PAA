@@ -34,7 +34,7 @@ int main() {
                 executeLCS();
                 break;
             default:
-                printf ("Opcao Inválida\n");
+                printf ("Opcao Invalida\n");
                 break;
         }
 

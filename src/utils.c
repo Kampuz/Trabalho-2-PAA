@@ -12,12 +12,12 @@ void proceed() {
 int menu() {
     int option = -1;
 
-    printf("Escolha uma opção:\n");
-    printf("1. Problema de Associação de Tarefas\n");
-    printf("2. Codificação de Huffman\n");
-    printf("3. Mochila Fracionária\n");
+    printf("Escolha uma opcao:\n");
+    printf("1. Problema de Associacao de Tarefas\n");
+    printf("2. Codificacao de Huffman\n");
+    printf("3. Mochila Fracionaria\n");
     printf("4. Mochila Booleana\n");
-    printf("5. Subsequência Comum Máxima\n");
+    printf("5. Subsequência Comum Maxima\n");
     printf("0. Sair\n");
     printf ("= ");
     scanf("%d", &option);

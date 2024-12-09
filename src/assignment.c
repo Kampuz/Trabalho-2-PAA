@@ -35,16 +35,16 @@ void addCost(table* table, int p, int t, int cost) {
 
 table* readTable() {
     int n, c;
-    printf ("Number of people/tasks = ");
+    printf ("Numero de Pessoas/Tarefas: ");
     scanf ("%d", &n);
     getchar();
     table* table = createTable(n, n);
     for (int i = 0; i < n; i++)
         table->people[i] = createPerson(table);
     for (int i = 0; i < n; i++) {
-        printf ("Person %d\n", i);
+        printf ("Pessoa %d\n", i);
         for (int j = 0; j < n; j++) {
-            printf ("Cost to task %d = ", j);
+            printf ("Custo da Tarefa %d = ", j);
             scanf ("%d", &c);
             getchar();
             addCost(table, i, j, c);
@@ -171,18 +171,18 @@ void assignRecursive(table* table, int* assigned, int currentTask, int* bestCost
 }
 
 void printAssignment(int* assignment, table* table) {
-    printf ("\nBest Assigment:\n");
+    printf ("\nMelhor Atribuição:\n");
     int totalCost = 0;
     for (int i = 0; i < table->numberPeople; i++) {
-        printf ("Person %d -> Task %d (Cost: %d)\n", i, assignment[i], table->people[i].cost[assignment[i]]);
+        printf ("Pessoa %d -> Tarefa %d (Custo: %d)\n", i, assignment[i], table->people[i].cost[assignment[i]]);
         totalCost += table->people[i].cost[assignment[i]];
     }
-    printf("Total Cost: %d\n", totalCost);
+    printf("Custo Total: %d\n", totalCost);
 }
 
 void executeAssignment() {
     table* newTable = readTable();
-    printf ("Table Read!\n");
+    printf ("Tabela Lida!\n");
     int* assignment = assignTask(newTable);
     printAssignment(assignment, newTable);
     free(assignment);

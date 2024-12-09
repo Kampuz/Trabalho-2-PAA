@@ -64,11 +64,11 @@ object* addObjects(int n) {
     int w, v, i = 0;
     object* arrayObjects = (object*)malloc(n*sizeof(object));
     do {
-        printf("Object %d\n", i);
-        printf ("Weight: ");
+        printf("Objeto %d\n", i);
+        printf ("Peso: ");
         scanf("%d", &w);
         getchar();
-        printf ("Value: ");
+        printf ("Valor: ");
         scanf("%d", &v);
         getchar();
         if (w <= 0 || v < 0) break;
@@ -113,10 +113,10 @@ void printResults(knapsack* knapsack, object* object, int n, int totalValue) {
 
 void executeKnapsack() {
     int n, m;
-    printf ("Object Number = ");
+    printf ("Numero do Objeto = ");
     scanf("%d", &n);
     getchar();
-    printf ("Knapsack Max Weight = ");
+    printf ("Peso Máximo da Mochila = ");
     scanf("%d", &m);
     getchar();
 
